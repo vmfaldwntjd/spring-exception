@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
-public class UserExceptionHandlerResolver implements HandlerExceptionResolver {
+public class UserHandlerExceptionResolver implements HandlerExceptionResolver {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -38,10 +38,11 @@ public class UserExceptionHandlerResolver implements HandlerExceptionResolver {
                     response.getWriter().write(result);
                     return new ModelAndView();
                 }
-            } else {
-                // TEXT/HTML
-                return new ModelAndView("error/500");
             }
+//            else {
+//                // TEXT/HTML
+//                return new ModelAndView("error/500");
+//            }
 
         } catch (IOException e) {
             log.error("resolver ex", e);
