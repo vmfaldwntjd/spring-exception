@@ -38,12 +38,11 @@ public class UserHandlerExceptionResolver implements HandlerExceptionResolver {
                     response.getWriter().write(result);
                     return new ModelAndView();
                 }
+                else {
+                    // TEXT/HTML
+                    return new ModelAndView("error/500");
+                }
             }
-//            else {
-//                // TEXT/HTML
-//                return new ModelAndView("error/500");
-//            }
-
         } catch (IOException e) {
             log.error("resolver ex", e);
         }
